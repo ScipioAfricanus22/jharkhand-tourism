@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  background: #1a1a2e;
+  padding: 14px 32px;
+  color: #fff;
+  gap: 32px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.navbar a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.navbar a.active,
+.navbar a:hover {
+  background-color: #16213e;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.sign-in-btn {
+  margin-left: auto;
+  background: #e94560;
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign-in-btn:hover {
+  background-color: #d83754;
+}

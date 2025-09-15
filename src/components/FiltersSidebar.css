@@ -1,0 +1,35 @@
+.filters-sidebar {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 1px 4px 12px rgba(30,30,30,0.08);
+  padding: 28px 18px;
+  min-width: 220px;
+  margin: 0 24px 0 0;
+  height: fit-content;
+  font-size: 1.07rem;
+}
+
+.filters-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.filter-group {
+  margin-bottom: 19px;
+}
+
+.filter-label {
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+input[type="checkbox"] {
+  margin-right: 7px;
+}

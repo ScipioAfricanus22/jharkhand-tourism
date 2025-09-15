@@ -1,0 +1,237 @@
+.homepage-root {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fefefe;
+  color: #222;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #222;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  padding: 4px 0;
+  transition: color 0.2s;
+  font-size: 1.08rem;
+}
+
+.nav a:hover {
+  color: #2196f3;
+  border-bottom: 2px solid #2196f3;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-btn {
+  background: #1cbaff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.book-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.bookings-btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.bookings-btn:hover {
+  background: #45a045;
+}
+
+.icon-user {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eee;
+  margin-left: 12px;
+  display: inline-block;
+}
+
+.hero-section-bg {
+  position: relative;
+  min-height: 850px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.slideshow-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in-bg { opacity: 1; }
+.fade-out-bg { opacity: 0.1; }
+
+.prev-btn-bg, .next-btn-bg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.35);
+  color: white;
+  border: none;
+  padding: 9px;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.prev-btn-bg { left: 22px; }
+.next-btn-bg { right: 22px; }
+
+.prev-btn-bg:hover,
+.next-btn-bg:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+  color: #fff;
+  margin: 35px auto 0 auto;
+  text-align: left;
+}
+
+.welcome-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+  max-width: 600px;
+  color: #fff;
+}
+
+.welcome-actions button {
+  margin-right: 16px;
+  margin-top: 12px;
+  border-radius: 24px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.features-section-overlay {
+  width: 96%;
+  margin: 16px auto 30px auto;
+  background: rgba(20, 20, 20, 0.7);
+  color: #fff;
+  padding: 36px 32px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 28px 24px;
+  justify-items: center;
+  margin-top: 24px;
+}
+
+.feature-card {
+  background: #fff;
+  color: #222;
+  border-radius: 16px;
+  padding: 24px 22px;
+  width: 100%;
+  max-width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-size: 1.05rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background .18s;
+  width: 90%;
+}
+
+.feature-btn:hover {
+  background: #1cbaff;
+  color: #222;
+}
