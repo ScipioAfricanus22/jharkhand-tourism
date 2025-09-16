@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./HomePage.css";
-
 
 const images = [
   "/homepage-images/image1.png",
@@ -10,7 +9,6 @@ const images = [
   "/homepage-images/image4.png",
 ];
 
-// Floating "What's Trending" Button component
 function FloatingTrendingButton() {
   const navigate = useNavigate();
 
@@ -62,29 +60,23 @@ export default function HomePage() {
     <div className="homepage-root">
       <FloatingTrendingButton />
 
-      {/* Header Bar */}
       <header className="header">
         <div className="logo">JharkhandAI</div>
         <nav className="nav">
-          <a href="#">Features</a>
-          <a href="#">Destinations</a>
-          <a href="#">Partners</a>
-          <a href="#">About</a>
+          <Link to="/">Features</Link>
+          <Link to="/destinations">Destinations</Link>
+          <Link to="/partners">Partners</Link>
+          <Link to="/about">About</Link>
+          <Link to="/marketplace">Marketplace</Link>
         </nav>
         <div className="header-buttons">
           <button className="contact-btn">Contact Us</button>
-          <button className="bookings-btn">Bookings</button>
-          <button
-            className="book-btn"
-            onClick={() => navigate("/bookings")}
-          >
-            Book a Visit
-          </button>
+          <button className="bookings-btn" onClick={() => navigate("/bookings")}>Bookings</button>
+          <button className="book-btn" onClick={() => navigate("/destinations")}>Book a Visit</button>
           <span className="icon-user" />
         </div>
       </header>
 
-      {/* HERO SECTION WITH BACKGROUND */}
       <section className="hero-section-bg">
         <div
           className={`slideshow-bg ${fade ? "fade-in-bg" : "fade-out-bg"}`}
@@ -104,20 +96,18 @@ export default function HomePage() {
               and secure experience across Jharkhand.
             </p>
             <div className="welcome-actions">
-              <button
-                className="book-btn"
-                onClick={() => navigate("/bookings")}
-              >
+              <button className="book-btn" onClick={() => navigate("/destinations")}>
                 Book a Visit
               </button>
               <button className="plan-btn">Plan a Visit</button>
-              <button className="explore-btn">Explore Destinations</button>
+              <button className="explore-btn" onClick={() => navigate("/destinations")}>
+                Explore Destinations
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Smart Tourism Features now moved below the hero section */}
       <section className="features-section-overlay">
         <h2>Smart Tourism Features</h2>
         <p>Everything you need for an unforgettable Jharkhand experience</p>
