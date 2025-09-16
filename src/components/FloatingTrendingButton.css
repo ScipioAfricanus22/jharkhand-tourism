@@ -1,0 +1,44 @@
+.trending-float-btn {
+  position: fixed;
+  top: 80px;
+  left: 32px;
+  z-index: 1000;
+  background: #e31c24;
+  color: #fff;
+  border: none;
+  border-radius: 16px 50px 50px 16px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.15), 0 2px 10px rgba(190,0,0,0.08);
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+
+.trending-float-btn:hover {
+  box-shadow: 0 8px 36px rgba(0,0,0,0.19);
+  transform: scale(1.07);
+}
+
+.trending-main-text {
+  margin-right: 11px;
+  display: block;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.trending-question {
+  background: #222;
+  color: #fff600;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

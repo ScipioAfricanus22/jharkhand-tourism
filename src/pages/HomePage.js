@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
+
 
 const images = [
   "/homepage-images/image1.png",
@@ -8,7 +10,24 @@ const images = [
   "/homepage-images/image4.png",
 ];
 
+// Floating "What's Trending" Button component
+function FloatingTrendingButton() {
+  const navigate = useNavigate();
+
+  return (
+    <button
+      className="trending-float-btn"
+      onClick={() => navigate("/trends")}
+      aria-label="What's Trending"
+    >
+      <span className="trending-main-text">What's<br />Trending</span>
+      <span className="trending-question">?</span>
+    </button>
+  );
+}
+
 export default function HomePage() {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const timeoutRef = useRef(null);
@@ -41,6 +60,8 @@ export default function HomePage() {
 
   return (
     <div className="homepage-root">
+      <FloatingTrendingButton />
+
       {/* Header Bar */}
       <header className="header">
         <div className="logo">JharkhandAI</div>
@@ -53,7 +74,12 @@ export default function HomePage() {
         <div className="header-buttons">
           <button className="contact-btn">Contact Us</button>
           <button className="bookings-btn">Bookings</button>
-          <button className="book-btn">Book a Visit</button>
+          <button
+            className="book-btn"
+            onClick={() => navigate("/bookings")}
+          >
+            Book a Visit
+          </button>
           <span className="icon-user" />
         </div>
       </header>
@@ -64,50 +90,68 @@ export default function HomePage() {
           className={`slideshow-bg ${fade ? "fade-in-bg" : "fade-out-bg"}`}
           style={{ backgroundImage: `url(${images[currentIndex]})` }}
         />
-        <button className="prev-btn-bg" onClick={prevImage}>&#10094;</button>
-        <button className="next-btn-bg" onClick={nextImage}>&#10095;</button>
+        <button className="prev-btn-bg" onClick={prevImage}>
+          &#10094;
+        </button>
+        <button className="next-btn-bg" onClick={nextImage}>
+          &#10095;
+        </button>
         <div className="hero-content">
           <div className="welcome-content">
             <h1>Explore Jharkhand, Smarter.</h1>
             <p>
-              An AI powered tourism site for personalized trips, AI assistance and secure experience across Jharkhand.
+              An AI powered tourism site for personalized trips, AI assistance
+              and secure experience across Jharkhand.
             </p>
             <div className="welcome-actions">
-              <button className="book-btn">Book a Visit</button>
+              <button
+                className="book-btn"
+                onClick={() => navigate("/bookings")}
+              >
+                Book a Visit
+              </button>
               <button className="plan-btn">Plan a Visit</button>
               <button className="explore-btn">Explore Destinations</button>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="features-section-overlay">
-            <h2>Smart Tourism Features</h2>
-            <p>Everything you need for an unforgettable Jharkhand experience</p>
-            <div className="features-grid">
-              <div className="feature-card">
-                <button className="feature-btn">Smart Itineraries</button><br />
-                Create, edit and share trip plans with one click; multilingual support included
-              </div>
-              <div className="feature-card">
-                <button className="feature-btn">MarketPlace</button><br />
-                Book homestays, events and eco-tours curated by locals
-              </div>
-              <div className="feature-card">
-                <button className="feature-btn">VR/AR Preview</button><br />
-                See 3D site walkthroughs and plan photo spots ahead
-              </div>
-              <div className="feature-card">
-                <button className="feature-btn">Transit Live</button><br />
-                Bus, cab and route updates with saved stops and alerts.
-              </div>
-              <div className="feature-card">
-                <button className="feature-btn">Secure Wallet</button><br />
-                Pay vendors safely with verified identities and receipts.
-              </div>
-              <div className="feature-card">
-                <button className="feature-btn">Accessibility</button><br />
-                Wheelchair access, step-free routes, facility details for sites.
-              </div>
-            </div>
+      {/* Smart Tourism Features now moved below the hero section */}
+      <section className="features-section-overlay">
+        <h2>Smart Tourism Features</h2>
+        <p>Everything you need for an unforgettable Jharkhand experience</p>
+        <div className="features-grid">
+          <div className="feature-card">
+            <button className="feature-btn">Smart Itineraries</button>
+            <br />
+            Create, edit and share trip plans with one click; multilingual
+            support included
+          </div>
+          <div className="feature-card">
+            <button className="feature-btn">MarketPlace</button>
+            <br />
+            Book homestays, events and eco-tours curated by locals
+          </div>
+          <div className="feature-card">
+            <button className="feature-btn">VR/AR Preview</button>
+            <br />
+            See 3D site walkthroughs and plan photo spots ahead
+          </div>
+          <div className="feature-card">
+            <button className="feature-btn">Transit Live</button>
+            <br />
+            Bus, cab and route updates with saved stops and alerts.
+          </div>
+          <div className="feature-card">
+            <button className="feature-btn">Secure Wallet</button>
+            <br />
+            Pay vendors safely with verified identities and receipts.
+          </div>
+          <div className="feature-card">
+            <button className="feature-btn">Accessibility</button>
+            <br />
+            Wheelchair access, step-free routes, facility details for sites.
           </div>
         </div>
       </section>
