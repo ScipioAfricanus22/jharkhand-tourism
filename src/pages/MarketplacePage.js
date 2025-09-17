@@ -65,10 +65,10 @@ export default function MarketplacePage() {
       <header className="market-header">
         <div className="logo">JharkhandAI</div>
         <nav className="nav">
-          <a href="#">Home</a>
-          <a className="active" href="#">Marketplace</a>
-          <a href="#">Destinations</a>
-          <a href="#">Events</a>
+          <a href="/">Home</a>
+          <a className="active" href="/marketplace">Marketplace</a>
+          <a href="/destinations">Destinations</a>
+          <a href="/events">Events</a>
         </nav>
         <input
           className="search-global"

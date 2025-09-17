@@ -5,10 +5,11 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <span className="navbar-logo">JharkhandAI</span>
-      <a href="#">Destinations</a>
-      <a href="#">Bookings</a>
-      <a href="#">Experiences</a>
-      <a href="#">About</a>
+      <a href="/">Home</a>
+      <a href="/destinations">Destinations</a>
+      <a href="/bookings">Bookings</a>
+      <a href="/experiences">Experiences</a>
+      <a href="/about">About</a>
       <button className="sign-in-btn">Sign In</button>
     </nav>
   );

@@ -1,0 +1,172 @@
+.contactus-main {
+  max-width: 900px;
+  margin: 2.5rem auto 0 auto;
+  padding: 2rem;
+  background: #fcfcfc;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px #d3d7df2a;
+  min-height: 80vh;
+}
+
+/* Common Queries */
+.queries-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.query-block {
+  background: #e0f6fc;
+  color: #0b2e4a;
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 1rem 1.25rem;
+  flex: 1 0 40%;
+  margin: 0.5rem 0;
+  min-width: 280px;
+  box-shadow: 0 2px 6px #d3e9f2a0;
+}
+
+/* Floating chatbox base */
+.floating-chatbox {
+  position: fixed;
+  bottom: 2.7rem;
+  right: 2.7rem;
+  width: 340px;
+  background: #fafcff;
+  border-radius: 14px 14px 4px 14px;
+  box-shadow: 0 2px 10px #b2dbfabd;
+  z-index: 1001;
+  padding: 1.25rem;
+  border: 1px solid #b3e0fc;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s;
+}
+
+/* Minimized chatbox */
+.floating-chatbox.minimized {
+  width: 45px;
+  padding: 0.6rem 0.3rem;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.floating-chatbox.minimized h4,
+.floating-chatbox.minimized textarea,
+.floating-chatbox.minimized button:not(.minimize-btn),
+.floating-chatbox.minimized .chatbox-success {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-chatbox h4 {
+  margin: 0 0 0.5rem 0;
+  color: #29b6f6;
+  font-size: 1.08rem;
+}
+
+.floating-chatbox textarea {
+  resize: none;
+  border-radius: 7px;
+  border: 1px solid #71c7ec88;
+  padding: 0.7rem;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.floating-chatbox button {
+  align-self: flex-end;
+  border: none;
+  background: #29b6f6;
+  color: #fff;
+  padding: 0.55rem 1.3rem;
+  border-radius: 20px;
+  margin-top: 0.15rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.floating-chatbox button:hover {
+  background: #0288d1;
+}
+
+.chatbox-success {
+  color: #065e13;
+  font-size: 0.97rem;
+  margin-top: 0.35rem;
+}
+
+/* Minimize toggle button */
+.minimize-btn {
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 1.4rem;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.minimize-btn:hover {
+  color: #0a84ff;
+}
+
+/* Helpline bottom box */
+.helpline-bottom {
+  width: 100%;
+  margin-top: 5.5rem;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: #e3fcfc;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 2px 14px #b1bac64a;
+}
+
+.helpline-bottom h3 {
+  color: #177cbf;
+}
+
+.helpline-list-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1rem;
+}
+
+.helpline-bottom-block {
+  background: #d0f4f7;
+  padding: 1rem 2.1rem 1rem 1.1rem;
+  border-radius: 6px;
+  font-size: 1.10rem;
+  font-weight: 500;
+  min-width: 230px;
+  box-shadow: 0 2px 8px #b3e5e7b3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.helpline-bottom-block .service {
+  color: #016082;
+}
+
+.helpline-bottom-block .number {
+  font-family: "Courier New", Courier, monospace;
+  color: #169bb7;
+}
+
+.helpline-note-horizontal {
+  font-size: 1rem;
+  margin-top: 0.9rem;
+  background: #fff9c4;
+  padding: 0.75rem 1.1rem;
+  border-radius: 7px;
+  color: #7a6912;
+}

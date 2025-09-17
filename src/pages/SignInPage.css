@@ -1,0 +1,30 @@
+.sign-in-page {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px #ddd;
+}
+.sign-in-page h2 {
+  margin-bottom: 1rem;
+  color: #2196f3;
+}
+.sign-in-page form input,
+.sign-in-page form select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.id-verification-btn {
+  background: #4caf50;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}

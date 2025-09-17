@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MapPanel from "../components/MapPanel"; // Make sure this path matches where you put MapPanel.js
 import "./DestinationsPage.css";
 
 const categories = [
@@ -35,16 +36,17 @@ const sampleDestinations = [
 
 export default function DestinationsPage() {
   const [search, setSearch] = useState("");
+  const [selectedDest, setSelectedDest] = useState(null);
 
   return (
     <div className="destinations-root">
       <header className="dest-header">
         <div className="logo">JharkhandAI</div>
         <nav className="nav">
-          <a href="#">Home</a>
-          <a href="#" className="active">Destinations</a>
-          <a href="#">Marketplace</a>
-          <a href="#">Bookings</a>
+          <a href="/">Home</a>
+          <a href="/destinations" className="active">Destinations</a>
+          <a href="/marketplace">Marketplace</a>
+          <a href="/bookings">Bookings</a>
         </nav>
         <input 
           className="search-global" 
@@ -109,7 +111,11 @@ export default function DestinationsPage() {
                   ))}
                 </div>
               </div>
-              <button className="view-btn" aria-label={`View details of ${dest.name}`}>
+              <button
+                className="view-btn"
+                aria-label={`View details of ${dest.name}`}
+                onClick={() => setSelectedDest(dest)}
+              >
                 View
               </button>
             </div>
@@ -126,7 +132,7 @@ export default function DestinationsPage() {
             onChange={e => setSearch(e.target.value)}
           />
           <div className="map-view">
-            Interactive Map View
+            <MapPanel selectedDest={selectedDest} />
             <div className="map-controls">
               <button aria-label="Zoom out" className="map-zoom">−</button>
               <button aria-label="Zoom in" className="map-zoom">+</button>

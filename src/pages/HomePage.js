@@ -18,7 +18,11 @@ function FloatingTrendingButton() {
       onClick={() => navigate("/trends")}
       aria-label="What's Trending"
     >
-      <span className="trending-main-text">What's<br />Trending</span>
+      <span className="trending-main-text">
+        What's
+        <br />
+        Trending
+      </span>
       <span className="trending-question">?</span>
     </button>
   );
@@ -26,9 +30,17 @@ function FloatingTrendingButton() {
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [signInType, setSignInType] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const timeoutRef = useRef(null);
+
+  const handleSignInType = (type) => {
+    setSignInType(type);
+    setShowDropdown(false);
+    window.open("/sign-in?type=" + type, "_blank");
+  };
 
   const triggerFade = (newIndex) => {
     setFade(false);
@@ -70,11 +82,34 @@ export default function HomePage() {
           <Link to="/marketplace">Marketplace</Link>
         </nav>
         <div className="header-buttons">
-          <button className="contact-btn">Contact Us</button>
-          <button className="bookings-btn" onClick={() => navigate("/bookings")}>Bookings</button>
-          <button className="book-btn" onClick={() => navigate("/destinations")}>Book a Visit</button>
-          <span className="icon-user" />
+        <button
+          className="contact-btn"
+          onClick={() => navigate("/helpline")}
+        >
+          Contact Us
+        </button>
+        <button
+          className="bookings-btn"
+          onClick={() => navigate("/bookings")}
+        >
+          Bookings
+        </button>
+        <div className="dropdown-wrapper">
+          <button
+            className="sign-in-btn"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            Sign In
+          </button>
+          {showDropdown && (
+            <div className="signin-dropdown">
+              <button onClick={() => handleSignInType("vendor")}>Vendor</button>
+              <button onClick={() => handleSignInType("tourist")}>Tourist</button>
+            </div>
+          )}
         </div>
+      </div>
+
       </header>
 
       <section className="hero-section-bg">
@@ -96,11 +131,17 @@ export default function HomePage() {
               and secure experience across Jharkhand.
             </p>
             <div className="welcome-actions">
-              <button className="book-btn" onClick={() => navigate("/destinations")}>
+              <button
+                className="book-btn"
+                onClick={() => navigate("/bookings")}
+              >
                 Book a Visit
               </button>
               <button className="plan-btn">Plan a Visit</button>
-              <button className="explore-btn" onClick={() => navigate("/destinations")}>
+              <button
+                className="explore-btn"
+                onClick={() => navigate("/destinations")}
+              >
                 Explore Destinations
               </button>
             </div>

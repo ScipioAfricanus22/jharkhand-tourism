@@ -5,6 +5,8 @@ import DestinationsPage from "./pages/DestinationsPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import BookingsPage from "./pages/BookingsPage";
 import TrendsPage from "./pages/TrendsPage";
+import Helpline from "./pages/helpline";
+import SignInPage from "./pages/SignInPage";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/marketplace" element={<MarketplacePage />} />
         <Route path="/bookings" element={<BookingsPage />} />
         <Route path="/trends" element={<TrendsPage />} />
+        <Route path="/helpline" element={<Helpline />} />
+        <Route path="/sign-in" element={<SignInPage />} />
       </Routes>
     </Router>
   );
