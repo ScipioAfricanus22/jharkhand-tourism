@@ -19,6 +19,7 @@ const products = [
     price: 800,
     rating: 4.5,
     cta: "Add to Cart",
+     image: "/images/pottery.jpg"
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const products = [
     rating: 4.6,
     nightly: true,
     cta: "Book now",
+     image: "/images/pottery.jpg"
   },
   {
     id: 3,
@@ -42,6 +44,7 @@ const products = [
     price: 450,
     rating: 4.2,
     cta: "Add to Cart",
+     image: "/images/pottery.jpg"
   },
   {
     id: 4,
@@ -53,6 +56,7 @@ const products = [
     price: 750,
     rating: 4.4,
     cta: "Add to Cart",
+     image: "/images/pottery.jpg"
   },
 ];
 
@@ -66,7 +70,9 @@ export default function MarketplacePage() {
         <div className="logo">JharkhandAI</div>
         <nav className="nav">
           <a href="/">Home</a>
-          <a className="active" href="/marketplace">Marketplace</a>
+          <a className="active" href="/marketplace">
+            Marketplace
+          </a>
           <a href="/destinations">Destinations</a>
           <a href="/events">Events</a>
         </nav>
@@ -74,53 +80,74 @@ export default function MarketplacePage() {
           className="search-global"
           type="text"
           placeholder="Search products"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
         />
-        <div className="cart-indicator">🛒<span className="cart-count">3</span></div>
+        <div className="cart-indicator">
+          🛒<span className="cart-count">3</span>
+        </div>
       </header>
 
-      <section className="market-hero">
-        <h1>Discover Authentic Jharkhand</h1>
-        <p>
-          From Handcrafted goodies to beautiful artisanship, explore the best local culture and craftsmanship
-        </p>
-        <button className="explore-btn-green">Start Exploring</button>
-        <div className="market-category-row">
-          {categories.map((cat) => (
-            <div className="market-category" key={cat.name}>
-              <div className="market-category-main">{cat.name}</div>
-              <div className="market-category-sub">{cat.sub}</div>
-            </div>
-          ))}
+      <section className="market-hero-row">
+        <div className="market-hero-box">
+          <h1>Discover Authentic Jharkhand</h1>
+          <p>
+            From Handcrafted goodies to beautiful artisanship, explore the best
+            local culture and craftsmanship
+          </p>
+          <button className="explore-btn-green">Start Exploring</button>
+        </div>
+        <div className="market-category-box">
+          <div className="market-category-grid">
+            {categories.map((cat) => (
+              <div className="market-category" key={cat.name}>
+                <div className="market-category-main">{cat.name}</div>
+                <div className="market-category-sub">{cat.sub}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="market-body">
         <aside className="market-filters">
           <h3>Filters</h3>
-          <div><input type="checkbox" /> Handicrafts</div>
-          <div><input type="checkbox" /> Tours</div>
-          <div><input type="checkbox" /> Homestays</div>
-          <label>Price Range</label>
+          <div>
+            <input type="checkbox" id="handicrafts" />{" "}
+            <label htmlFor="handicrafts">Handicrafts</label>
+          </div>
+          <div>
+            <input type="checkbox" id="tours" /> <label htmlFor="tours">Tours</label>
+          </div>
+          <div>
+            <input type="checkbox" id="homestays" />{" "}
+            <label htmlFor="homestays">Homestays</label>
+          </div>
+          <label htmlFor="price">Price Range</label>
           <input
             type="range"
             min="0"
             max="2000"
             value={price}
+            id="price"
             onChange={(e) => setPrice(e.target.value)}
           />
           <div>Rating</div>
           <div>
-            <input type="radio" name="rating" /> ★★★★★ 5 stars
+            <input type="radio" name="rating" id="r5" />
+            <label htmlFor="r5">★★★★★ 5 stars</label>
           </div>
           <div>
-            <input type="radio" name="rating" /> ★★★★☆ 4+ stars
+            <input type="radio" name="rating" id="r4" />
+            <label htmlFor="r4">★★★★☆ 4+ stars</label>
           </div>
           <div>
-            <input type="radio" name="rating" /> ★★★☆☆ 3+ stars
+            <input type="radio" name="rating" id="r3" />
+            <label htmlFor="r3">★★★☆☆ 3+ stars</label>
           </div>
           <div>
-            <label>District</label>
-            <select>
+            <label htmlFor="district">District</label>
+            <select id="district">
               <option>All districts</option>
               <option>Ranchi</option>
               <option>Jamshedpur</option>
