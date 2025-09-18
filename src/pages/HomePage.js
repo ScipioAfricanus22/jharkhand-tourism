@@ -201,10 +201,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="features-section-overlay">
-        <h2>What's Trending?</h2>
-        
-      </section>
       
     </div>
   );

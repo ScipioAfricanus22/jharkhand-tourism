@@ -16,14 +16,14 @@ const sampleDestinations = [
     district: "Deoghar District",
     type: "Temple",
     tags: ["Sacred", "Heritage"],
-    photo: "/homepage-images/image2.png",
+    photo: "/destinations-page images/BabaBaidyanath.png",
   },
   {
     name: "Dalma Hills",
     district: "Jamshedpur District",
     type: "Waterfall",
     tags: ["Hill Station", "Scenic"],
-    photo: "/destination images/park.jpg",
+    photo: "/destinations-page images/Dalma.png",
   },
 ];
 
