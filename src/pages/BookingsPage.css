@@ -1,10 +1,25 @@
 .bookings-root {
-  background: #f7f7f7;
   min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  /* Remove any background color to show image */
+  background-color: transparent !important;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.page-overlay {
+  background: rgba(255,255,255,0.90); /* white with opacity */
+  padding: 32px 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .page-content {
-  padding: 32px 40px;
+  /* remove padding here if already in overlay */
+  padding: 0;
+  background: transparent !important;
 }
 
 .main-section {
@@ -12,10 +27,18 @@
   gap: 32px;
   margin-top: 24px;
 }
+
 .section-title {
   margin-top: 40px;
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 1.5px;
+}
+
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 30px 30px;
+  width: 100%;
 }

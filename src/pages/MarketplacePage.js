@@ -19,7 +19,7 @@ const products = [
     price: 800,
     rating: 4.5,
     cta: "Add to Cart",
-     image: "/images/pottery.jpg"
+    image: "/marketplace-images/img1.png",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const products = [
     rating: 4.6,
     nightly: true,
     cta: "Book now",
-     image: "/images/pottery.jpg"
+    image: "/marketplace-images/img2.png",
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const products = [
     price: 450,
     rating: 4.2,
     cta: "Add to Cart",
-     image: "/images/pottery.jpg"
+    image: "/marketplace-images/img3.png",
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ const products = [
     price: 750,
     rating: 4.4,
     cta: "Add to Cart",
-     image: "/images/pottery.jpg"
+    image: "/marketplace-images/img4.png",
   },
 ];
 
@@ -64,10 +64,20 @@ export default function MarketplacePage() {
   const [search, setSearch] = useState("");
   const [price, setPrice] = useState(0);
 
+  const backgroundStyle = {
+    fontFamily: "'Inter', Arial, sans-serif",
+    backgroundImage: "url('/marketplace-images/bckimage.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    minHeight: "100vh",
+  };
+
   return (
-    <div className="marketplace-root">
+    <div className="marketplace-root" style={backgroundStyle}>
       <header className="market-header">
-        <div className="logo">JharkhandAI</div>
+        <div className="logo">JharkhandTour</div>
         <nav className="nav">
           <a href="/">Home</a>
           <a className="active" href="/marketplace">
@@ -158,27 +168,20 @@ export default function MarketplacePage() {
         <div className="market-products">
           {products.map((p) => (
             <div key={p.id} className="market-prod-card">
-              <div className="prod-verified">{p.verified && "Verified"}</div>
-              <div className="prod-main">
-                <strong>{p.name}</strong>
-                <br />
-                {p.description}
-                <br />
-                <span style={{ fontSize: "0.93em", color: "#353535" }}>
-                  {p.vendor}
-                </span>
-              </div>
-              <div className="prod-price">
-                <span>
-                  {p.nightly ? `₹${p.price}/night` : `₹${p.price}`}
-                </span>{" "}
-                <span className="prod-rating">⭐ {p.rating}</span>
-              </div>
-              <div className="prod-actions-row">
-                <button className="market-action-green">{p.cta}</button>
-                <button className="market-action-view">View</button>
-              </div>
-            </div>
+  <div className="prod-verified">{p.verified && "Verified"}</div>
+  <img src={p.image} alt={p.name} className="prod-image" />
+  <div className="prod-main">
+    <strong>{p.name}</strong>
+    <br />
+    {p.description}
+    <br />
+    <span style={{ fontSize: "0.93em", color: "#353535" }}>
+      {p.vendor}
+    </span>
+  </div>
+  {/* ...rest of the card */}
+</div>
+
           ))}
         </div>
       </section>

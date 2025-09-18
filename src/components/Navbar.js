@@ -4,7 +4,7 @@ import "./Navbar.css";
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <span className="navbar-logo">JharkhandAI</span>
+      <span className="navbar-logo">JharkhandTour</span>
       <a href="/">Home</a>
       <a href="/destinations">Destinations</a>
       <a href="/bookings">Bookings</a>

@@ -7,6 +7,7 @@ import BookingsPage from "./pages/BookingsPage";
 import TrendsPage from "./pages/TrendsPage";
 import Helpline from "./pages/helpline";
 import SignInPage from "./pages/SignInPage";
+import ItineraryPlanner from "./pages/ItineraryPlanner";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/trends" element={<TrendsPage />} />
         <Route path="/helpline" element={<Helpline />} />
         <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/plan-visit" element={<ItineraryPlanner />} />
       </Routes>
     </Router>
   );

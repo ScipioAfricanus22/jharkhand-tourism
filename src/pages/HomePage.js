@@ -137,7 +137,7 @@ export default function HomePage() {
               >
                 Book a Visit
               </button>
-              <button className="plan-btn">Plan a Visit</button>
+              <button  className="plan-btn" onClick={() => navigate("/plan-visit")}>Plan a Visit</button>
               <button
                 className="explore-btn"
                 onClick={() => navigate("/destinations")}

@@ -1,21 +1,16 @@
-import React from "react";
-import "./HotelCard.css";
+import React from 'react';
+import './HotelCard.css'; // create this CSS file with styles below
 
-export default function HotelCard({ name, types, rating, price, available }) {
+export default function HotelCard({ name, types, rating, price, available, image }) {
   return (
     <div className="hotel-card">
-      {available && <div className="card-header">Available</div>}
-      <div className="card-title">{name}</div>
-      <div className="card-meta">
-        {types.map((type, idx) => (
-          <span key={idx} className="card-type-tag">{type}</span>
-        ))}
-        <span className="card-rating">&#9733; {rating.toFixed(1)}</span>
-      </div>
-      <div className="card-footer">
-        <span className="price">₹ {price.toLocaleString()} /night</span>
-        <button className="reserve-btn">Reserve</button>
-      </div>
+      <div className="hotel-status">{available ? "Available" : "Booked"}</div>
+      <div className="hotel-name">{name}</div>
+      <div className="hotel-rating">★ {rating}</div>
+      <div className="hotel-price">₹ {price} /night</div>
+      <img src={image} alt={name} className="hotel-image" />
+      <div className="hotel-types">{types.join(", ")}</div>
+      <button className="hotel-reserve-btn">Reserve</button>
     </div>
   );
 }

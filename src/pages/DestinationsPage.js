@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MapPanel from "../components/MapPanel";
 import "./DestinationsPage.css";
+import backgroundImage from "../background.png";
 
 const sampleDestinations = [
   {
@@ -41,10 +42,20 @@ export default function DestinationsPage() {
   const [search, setSearch] = useState("");
   const [selectedDest, setSelectedDest] = useState(null);
 
+  const rootStyle = {
+  minHeight: "100vh",
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center center",
+  backgroundSize: "cover",
+};
+
+  
+
   return (
-    <div className="destinations-root">
+    <div style={rootStyle} className="destinations-root">
       <header className="dest-header">
-        <div className="logo">JharkhandAI</div>
+        <div className="logo">JharkhandTour</div>
         <nav className="nav">
           <a href="/">Home</a>
           <a href="/destinations" className="active">Destinations</a>

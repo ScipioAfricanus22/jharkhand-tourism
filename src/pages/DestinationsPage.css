@@ -20,7 +20,7 @@
 
 /* Header styles */
 .dest-header {
-  background: var(--card-accent);
+  background: rgba(20, 92, 86, 0.6);   /* semi-transparent with accent color */
   color: var(--secondary-bg);
   display: flex;
   align-items: center;
@@ -28,7 +28,12 @@
   border-radius: 0 0 24px 24px;
   margin-bottom: 40px;
   box-shadow: 0 0 22px rgba(23,99,91,0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* fallback for browsers without backdrop-filter: */
+  /* filter: blur(2px); */
 }
+
 
 .logo {
   font-weight: bold;
@@ -93,28 +98,32 @@
 
 /* Hero box */
 .hero-box {
-  background: var(--tag-bg);
+  background: rgba(222, 252, 251, 0.4); /* Semi-transparent light color */
+  backdrop-filter: blur(12px);          /* Frosted glass blur effect */
+  -webkit-backdrop-filter: blur(12px);  /* Safari support */
   padding: 32px 48px 28px 48px;
   border-radius: 24px;
-  box-shadow: 0 8px 28px rgba(27,99,91,0.15);
+  box-shadow: 0 8px 28px rgba(27, 99, 91, 0.15);
   margin-bottom: 36px;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--card-accent);
 }
+
 
 .hero-box h1 {
   font-size: 2.3rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: var(--card-accent);
+  color: white;
   letter-spacing: 0.9px;
 }
 
 .hero-box p {
   margin-bottom: 20px;
   font-size: 1.22rem;
-  color: var(--card-accent);
+  color: white;
   font-weight: 400;
   max-width: 720px;
   line-height: 1.45;
@@ -123,8 +132,10 @@
 /* Category pills */
 .category-pills {
   display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 16px;           /* Space between buttons */
+  flex-wrap: nowrap;   /* All buttons in single row, no wrapping */
+  overflow-x: auto;    /* Optional: allow horizontal scroll if overflow */
+  padding-bottom: 6px; /* Small padding under buttons if needed */
 }
 
 .cat-pill {
@@ -154,16 +165,20 @@
 }
 
 .filter-box {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.25); /* semi-transparent white */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 24px;
-  box-shadow: 0 2px 14px rgba(36,198,164,0.11);
+  box-shadow: 0 2px 14px rgba(36, 198, 164, 0.11);
   padding: 18px 27px;
   display: flex;
   gap: 12px;
-  flex-wrap: nowrap;   /* ensures single line */
+  flex-wrap: nowrap;
   align-items: center;
   max-width: 1200px;
+  color: var(--card-accent);
 }
+
 
 .filter-box select,
 .filter-box button {
@@ -211,7 +226,9 @@
 
 /* ---------- Destination Cards Section ---------- */
 .dest-list-panel {
-  background: var(--secondary-bg);
+  background: rgba(255, 255, 255, 0.45); /* semi-transparent white */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 24px;
   box-shadow: 0 2px 14px rgba(36,198,164,0.11);
   padding: 32px 0px;
@@ -219,6 +236,7 @@
   max-width: 880px;
   width: 100%;
 }
+
 .dest-list {
   padding: 0 38px 0 38px;
 }
@@ -240,7 +258,7 @@
   margin: 0 auto 36px auto;
   display: flex;
   align-items: center;
-  background: var(--secondary-bg);
+  background: rgba(222, 252, 251, 0.4);
   border-radius: var(--card-radius);
   box-shadow: var(--shadow-main);
   padding: var(--card-padding);
@@ -353,12 +371,15 @@
   min-width: 320px;
   box-sizing: border-box;
   border-radius: 18px;
-  background: var(--secondary-bg);
-  box-shadow: 0 2px 16px rgba(36,198,164,0.14);
+  background: rgba(255, 255, 255, 0.35); /* semi-transparent white */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 16px rgba(36, 198, 164, 0.14);
   padding: 32px 18px;
   overflow: hidden;
   margin-top: 26px;
 }
+
 
 .search-destination {
   width: 100%;
