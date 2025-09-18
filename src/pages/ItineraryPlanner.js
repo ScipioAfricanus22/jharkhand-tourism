@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
 import "./ItineraryPlanner.css";
+
 
 const suggestions = [
   {
@@ -38,7 +41,9 @@ const timeline = [
         type: "Place",
         name: "Ranchi Hill Station",
         slot: "9:00-10:00",
-        icon: "📍"
+        icon: "📍",
+        lat: 23.3700,
+        lng: 85.3250
       },
       {
         time: "10:00",
@@ -66,7 +71,9 @@ const timeline = [
         type: "Place",
         name: "Jagannath Temple",
         slot: "12:00-13:00",
-        icon: "🛕"
+        icon: "🛕",
+        lat: 23.3105,
+        lng: 85.2517
       }
     ]
   },
@@ -77,8 +84,29 @@ const timeline = [
   }
 ];
 
+// Leaflet marker icon setup
+const defaultIcon = new L.Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41]
+});
+
+function FlyToMarker({ position }) {
+  const map = useMap();
+  useEffect(() => {
+    if (position) {
+      map.setView([position.lat, position.lng], 14, { animate: true });
+    }
+  }, [position, map]);
+  return null;
+}
+
 export default function ItineraryPlanner() {
   const [selectedDay, setSelectedDay] = useState(1);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
 
   return (
     <div className="itinerary-root">
@@ -131,12 +159,14 @@ export default function ItineraryPlanner() {
                 {day.activities.length === 0 
                   ? <div className="empty-activity">+ Drag Activities or Click to add</div>
                   : day.activities.map((act, i) => (
-                    <div className="activity-card" key={i}>
+                    <div className="activity-card" key={i}
+                         onClick={() => act.lat && act.lng ? setSelectedLocation({ lat: act.lat, lng: act.lng, name: act.name }) : null}
+                         style={{ cursor: act.lat && act.lng ? "pointer" : "default" }}>
                       <span className="activity-icon">{act.icon}</span>
                       <span className="activity-name">{act.name || act.mode}</span>
                       <span className="activity-time">{act.slot}</span>
                     </div>
-                  ))}
+                ))}
               </div>
             </section>
           ))}
@@ -147,7 +177,27 @@ export default function ItineraryPlanner() {
             <option>Day-1</option>
             <option>Day-2</option>
           </select>
-          <div className="interactive-map">Interactive map</div>
+          <div className="interactive-map">
+            <MapContainer
+              center={selectedLocation ? [selectedLocation.lat, selectedLocation.lng] : [23.3656, 85.3344]}
+              zoom={selectedLocation ? 14 : 7}
+              style={{ height: "188px", borderRadius: "8px", width: "100%" }}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {selectedLocation && (
+                <>
+                  <FlyToMarker position={selectedLocation} />
+                  <Marker position={[selectedLocation.lat, selectedLocation.lng]} icon={defaultIcon}>
+                    <Popup>{selectedLocation.name}</Popup>
+                  </Marker>
+                </>
+              )}
+            </MapContainer>
+          </div>
         </aside>
         <aside className="activity-library">
           <h4>Activity Library</h4>
